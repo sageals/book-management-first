@@ -1,0 +1,14 @@
+version: "3"
+services:
+  javatechiemongodb:
+    image: mongo:latest
+    container_name: "bookmongodb"
+    ports:
+      - 27017:27017
+  springboot-mongodb:
+    image: springboot-book-mongodb:1.0
+    container_name: springboot-book-mongodb
+    ports:
+      - 8080:8080
+    links:
+      - bookmongodb
